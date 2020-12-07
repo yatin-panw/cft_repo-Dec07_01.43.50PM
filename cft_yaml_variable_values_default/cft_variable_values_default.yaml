@@ -24,3 +24,4 @@ Resources:
         - !Ref 'AWS::Region'
         - AMI
       UserData: !Base64 '80'
+# Modified [cft_variable_values_default.yaml] on [2020-12-07 13:44:32.504088]
