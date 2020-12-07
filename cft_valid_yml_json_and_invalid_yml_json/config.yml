@@ -1,0 +1,46 @@
+template_type: TF
+#template_type: K8S
+#template_type: CFT
+# terraform_version: 0.11
+terraform_version: 0.12
+
+terraform_012_parameters:
+- root_module: tf12/aws_all_issues/
+#- root_module: tf12/aws_all_issues_addressed/
+#- root_module: tf12_gcp/addressed_gcp_all_issues_addressed/
+#- root_module: tf12_gcp/gcp_all_issues/
+#- root_module: tf12_gcp/gcp_all_issues2/
+#- root_module: tf12_gcp/gcp_all_issues_addressed/
+#- root_module: tf12_gcp/matchgcp/
+#- root_module: tf12_gcp/gcp_test/
+# - root_module: tf12/terraform12novariablemodule/
+# - root_module: tf12/for-expressions/
+# #- root_module: tf12_azure/azure_all_issues/
+# #- root_module: tf12_azure/azure_all_issues_addressed/
+# #- root_module: tf12_azure/azure_all_issues_addressed2/
+# #- root_module: tf12_azure/matchazure/
+# - root_module: tf12_azure/azure_variable_values/
+#   variables:
+#     - name: resource_group_name
+#       value: group1
+# - root_module: tf12_variables/network/
+#   variable_files:
+#   - tf12_variables/network/smvariables.tfvars
+# - root_module: tf12_variables/terraform12module/
+#   variables:
+#   - name: check
+#     value: "public-read-write"
+tags:
+- 'Org: Panw'
+- 'Team: ShiftLeft'
+- 'Env: Dev'
+# Modified [config.yml] on [2020-11-10 23:12:35.070364]
+# Modified [config.yml] on [2020-11-10 23:14:56.506419]
+# Modified [config.yml] on [2020-11-10 23:19:32.594747]
+# Modified [config.yml] on [2020-11-14 13:51:50.404367]
+# Modified [config.yml] on [2020-11-14 18:58:28.308810]
+# Modified [config.yml] on [2020-11-14 19:02:50.637967]
+# Modified [config.yml] on [2020-11-14 19:07:16.765614]
+# Modified [config.yml] on [2020-11-14 19:16:16.525816]
+# Modified [config.yml] on [2020-11-14 19:54:41.620691]
+# Modified [config.yml] on [2020-11-14 20:16:52.424531]

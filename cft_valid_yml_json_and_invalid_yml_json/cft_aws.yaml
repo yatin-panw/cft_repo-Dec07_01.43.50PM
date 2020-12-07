@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: YAML EXAMPLE sample template
+Resources:
+  MyEC2Instance: #An inline comment
+    Type: "AWS::EC2::Instance"
+    Properties: 
+      ImageId: "ami-0ff8a91507f77f867" #Another comment -- This is a Linux AMI
+      InstanceType: t2.micro
+      KeyName: testkey
+      BlockDeviceMappings:
+        -
+          DeviceName: /dev/sdm
+          Ebs:
+            VolumeType: io1
+            Iops: 200
+            DeleteOnTermination: false
+            VolumeSize: 20
+# Modified [cft_aws.yaml] on [2020-11-10 23:12:35.071041]
+# Modified [cft_aws.yaml] on [2020-11-10 23:14:56.506773]
+# Modified [cft_aws.yaml] on [2020-11-10 23:19:32.595611]
+# Modified [cft_aws.yaml] on [2020-11-14 13:51:50.404906]
+# Modified [cft_aws.yaml] on [2020-11-14 18:58:28.310586]
+# Modified [cft_aws.yaml] on [2020-11-14 19:02:50.639121]
+# Modified [cft_aws.yaml] on [2020-11-14 19:07:16.766017]
+# Modified [cft_aws.yaml] on [2020-11-14 19:16:16.526684]
+# Modified [cft_aws.yaml] on [2020-11-14 19:54:41.623106]
+# Modified [cft_aws.yaml] on [2020-11-14 20:16:52.425559]

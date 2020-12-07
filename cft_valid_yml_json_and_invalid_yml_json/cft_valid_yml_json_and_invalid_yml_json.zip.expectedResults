@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "matchedPoliciesSummary": {
+            "high": 1,
+            "medium": 1,
+            "low": 2
+        },
+        "errorDetails": []
+    },
+    "data": [
+        {
+            "id": "630d3779-d932-4fbf-9cce-6e8d793c6916",
+            "attributes": {
+                "severity": "high",
+                "name": "AWS S3 buckets are accessible to public",
+                "rule": "($.Resources.*[?(@.Type=='AWS::S3::Bucket')].Properties.AccessControl any equal PublicRead or $.Resources.*[?(@.Type=='AWS::S3::Bucket')].Properties.AccessControl any equal PublicReadWrite)",
+                "desc": "This policy identifies S3 buckets which are publicly accessible. Amazon S3 allows customers to store or retrieve any type of content from anywhere in the web. Often, customers have legitimate reasons to expose the S3 bucket to public, for example, to host website content. However, these buckets often contain highly sensitive enterprise data which if left open to public may result in sensitive data leaks.",
+                "files": [
+                    "./cft_valid_yml_json_and_invalid_yml_json/cft_aws_json_with_issues.json"
+                ],
+                "policyId": "630d3779-d932-4fbf-9cce-6e8d793c6916",
+                "docUrl": "http://prisma.fyi/p71"
+            }
+        },
+        {
+            "id": "89ea62c1-3845-4134-b337-cc82203b8ff9",
+            "attributes": {
+                "severity": "medium",
+                "name": "AWS S3 Object Versioning is disabled",
+                "rule": "$.Resources.*[?(@.Type=='AWS::S3::Bucket')] exists and $.Resources.*[?(@.Type=='AWS::S3::Bucket')].Properties.VersioningConfiguration does not exist or ($.Resources[?(@.Type=='AWS::S3::Bucket')].Properties.VersioningConfiguration exists and $.Resources.*[?(@.Type=='AWS::S3::Bucket')].Properties.VersioningConfiguration.Status contains Suspended)",
+                "desc": "This policy identifies the S3 buckets which have Object Versioning disabled. S3 Object Versioning is an important capability in protecting your data within a bucket. Once you enable Object Versioning, you cannot remove it; you can suspend Object Versioning at any time on a bucket if you do not wish for it to persist. It is recommended to enable Object Versioning on S3.",
+                "files": [
+                    "./cft_valid_yml_json_and_invalid_yml_json/cft_aws_json_with_issues.json"
+                ],
+                "policyId": "89ea62c1-3845-4134-b337-cc82203b8ff9",
+                "docUrl": "http://prisma.fyi/p69"
+            }
+        },
+        {
+            "id": "7913fcbf-b679-5aac-d979-1b6817becb22",
+            "attributes": {
+                "severity": "low",
+                "name": "AWS S3 buckets do not have server side encryption",
+                "rule": "$.Resources.*[?(@.Type=='AWS::S3::Bucket')].Properties.BucketEncryption any null or $.Resources.*[?(@.Type=='AWS::S3::Bucket')].Properties.BucketEncryption.ServerSideEncryptionConfiguration[*].ServerSideEncryptionByDefault.SSEAlgorithm any null",
+                "desc": "Customers can protect the data in S3 buckets using the AWS server-side encryption. If the server-side encryption is not turned on for S3 buckets with sensitive data, in the event of a data breach, malicious users can gain access to the data.\n\nNOTE: Do NOT enable this policy if you are using 'Server-Side Encryption with Customer-Provided Encryption Keys (SSE-C).'",
+                "files": [
+                    "./cft_valid_yml_json_and_invalid_yml_json/cft_aws_json_with_issues.json"
+                ],
+                "policyId": "7913fcbf-b679-5aac-d979-1b6817becb22",
+                "docUrl": "http://prisma.fyi/p95"
+            }
+        },
+        {
+            "id": "3f141560-9cfc-412a-96cc-2768edfd23ad",
+            "attributes": {
+                "severity": "low",
+                "name": "AWS S3 CloudTrail buckets for which access logging is disabled",
+                "rule": "$.Resources.*[?(@.Type=='AWS::S3::Bucket')].Properties.LoggingConfiguration any null",
+                "desc": "This policy identifies S3 CloudTrail buckets for which access is disabled. S3 Bucket access logging generates access records for each request made to your S3 bucket. An access log record contains information such as the request type, the resources specified in the request worked, and the time and date the request was processed. It is recommended that bucket access logging be enabled on the CloudTrail S3 bucket.",
+                "files": [
+                    "./cft_valid_yml_json_and_invalid_yml_json/cft_aws_json_with_issues.json"
+                ],
+                "policyId": "3f141560-9cfc-412a-96cc-2768edfd23ad",
+                "docUrl": "http://prisma.fyi/p7"
+            }
+        }
+    ]
+}
