@@ -32,3 +32,4 @@ spec:
           image: nginx:1.7.9
           securityContext:
             privileged: true
+# Modified [k8s_with_issues.yml] on [2020-12-07 13:44:00.855920]
