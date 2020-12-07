@@ -15,3 +15,4 @@ Resources:
             Iops: 200
             DeleteOnTermination: false
             VolumeSize: 20
+# Modified [aws.yaml] on [2020-12-07 13:44:22.104638]
